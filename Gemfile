@@ -32,7 +32,7 @@ group :development do
   gem 'glebtv-capistrano-unicorn', require: false
   gem 'capistrano-bundler'
   gem 'capistrano-rails', '~> 1.1.0', require: false
-  gem 'rvm1-capistrano3', require: false
+  gem 'capistrano-rvm'
   gem 'capistrano-rails-console'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
