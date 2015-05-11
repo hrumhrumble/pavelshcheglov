@@ -1,7 +1,7 @@
 require 'capistrano/setup'
 require 'capistrano/deploy'
 
-# require 'rvm1/capistrano3'
+require 'capistrano/rvm'
 require 'capistrano/bundler'
 require 'capistrano/unicorn'
 require 'capistrano/rails/assets'
@@ -18,7 +18,6 @@ require 'capistrano/rails/migrations'
 #   https://github.com/capistrano/rails/tree/master/assets
 #   https://github.com/capistrano/rails/tree/master/migrations
 #
-require 'capistrano/rvm'
 # require 'capistrano/rbenv'
 # require 'capistrano/chruby'
 # require 'capistrano/bundler'
