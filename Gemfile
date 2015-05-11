@@ -27,10 +27,10 @@ end
 
 group :development do
   gem 'better_errors'
-  gem "capistrano", "~> 3.2.0", require: false
+  gem "capistrano", require: false
   gem 'glebtv-capistrano-unicorn', require: false
   gem 'capistrano-bundler'
-  gem 'capistrano-rails', '~> 1.1.0', require: false
+  gem 'capistrano-rails', require: false
   gem 'capistrano-rvm'
   gem 'capistrano-rails-console'
   gem 'hub', :require=>nil
