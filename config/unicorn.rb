@@ -18,6 +18,7 @@ timeout 120
 # we will use this in our nginx.conf later
 
 listen socket_file, backlog: 64
+# listen "127.0.0.1:16018"
 
 # Set process id path
 pid pid_file
