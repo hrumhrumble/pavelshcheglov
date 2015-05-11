@@ -16,7 +16,6 @@ gem 'pg'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'unicorn'
-gem 'unicorn-rails'
 
 group :development, :test do
   gem 'byebug'
