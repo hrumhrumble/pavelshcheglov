@@ -11,11 +11,16 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
+gem 'rails_admin'
 gem 'devise'
 gem 'pg'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'unicorn'
+
+gem 'nokogiri'
+
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'byebug'
