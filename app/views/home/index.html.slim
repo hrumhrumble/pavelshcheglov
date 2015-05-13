@@ -9,14 +9,10 @@
     = link_to 'github.com', 'https://github.com/hrumhrumble', :target => '_blank'
     = link_to 'brainstorage.me', 'http://brainstorage.me/hrumhrumble', :target => '_blank'
 
-#skills
-  h2 С чем работал
-  span Ruby on Rails, SASS, SLIM, JS, CoffeScript
-
 #portfolio
   h2 Портфолио
   ul
-    li = link_to 'acv', 'http://acv.ru', :target => '_blank'
+    li = link_to 'acv.ru', 'http://acv.ru', :target => '_blank'
     li = link_to 'camranh-flowers.com', 'http://camranh-flowers.com/', :target => '_blank'
     li = link_to 'darenta.ru', 'http://darenta.ru/', :target => '_blank'
     li = link_to 'milleniart.net', 'http://milleniart.net', :target => '_blank'
@@ -28,3 +24,8 @@
     li = link_to 'lookuprealty.ru', 'http://lookuprealty.ru/', :target => '_blank'
     li = link_to 'vashvkus.ru', 'http://vashvkus.ru', :target => '_blank'
     li = link_to 'rocketscience.pro', 'http://rocketscience.pro/ru/rails', :target => '_blank'
+
+/- if user_signed_in?
+/  = link_to 'Перейти в статистику', profile_path, class: 'clients_login'
+/- else
+/  = link_to 'Вход для клиентов', new_user_session_path, class: 'clients_login'
