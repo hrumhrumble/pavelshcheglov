@@ -9,13 +9,13 @@ RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
 
   ## == Cancan ==
-  # config.authorize_with :cancan
+  config.authorize_with :cancan
 
   ## == PaperTrail ==
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-
+  config.main_app_name = ['']
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -31,4 +31,7 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+  config.label_methods << :url
+  config.label_methods << :place
+  config.label_methods << :word
 end

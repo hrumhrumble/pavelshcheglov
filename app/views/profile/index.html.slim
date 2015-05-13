@@ -1,0 +1,19 @@
+= link_to 'logout', destroy_user_session_path, method: :delete
+- current_user.sites.each do |site|
+  table border="1"
+    thead
+      tr
+        td = site.url
+    /td = site.created_at.strftime('%d:%m:%Y')
+
+    tbody
+      - site.queries.each do |q|
+        tr
+          td = q.word
+          td
+            - q.positions.each do |p|
+              td
+                - if p.place == 0
+                  span -
+                - else
+                  = p.place

@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'rails_admin'
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 gem 'pg'
 gem 'simple_form'
 gem 'slim-rails'

@@ -21,7 +21,7 @@ namespace :xml do
             position = index + 1
             break
           else
-            position = "-"
+            position = 0
           end
         end
         query.positions.create(place: position)
