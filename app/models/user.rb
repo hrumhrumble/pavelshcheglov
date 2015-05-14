@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
           ROLES
         end
       end
+      field :password
       field :sites
     end
   end
