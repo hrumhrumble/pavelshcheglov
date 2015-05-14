@@ -17,4 +17,8 @@
               tr
                 td.query_word= query.word
                 - query.positions.each do |position|
-                  td.position_place= position.place
+                  td.position_place
+                    - if position.place == 0
+                      span -
+                    - else
+                      = position.place
