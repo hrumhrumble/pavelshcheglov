@@ -1,8 +1,8 @@
 .basic_form.login_form
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form_group
-      = f.input :email, required: false, autofocus: true
+      = f.input :email, required: false, autofocus: true, label: 'Почта'
     .form_group
-      = f.input :password, required: false
+      = f.input :password, required: false, label: 'Пароль'
     .form_actions
       = f.button :submit, "Войти", class: 'btn btn_primary'
