@@ -10,3 +10,5 @@ set :linked_dirs, %w{log tmp vendor/bundle public/assets public/system}
 
 after 'deploy:publishing', 'deploy:restart'
 after 'deploy:restart', 'unicorn:duplicate'
+
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
