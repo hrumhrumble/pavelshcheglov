@@ -11,17 +11,20 @@
 
     .basic_table
       - @sites.each do |site|
-        table
-          thead
-            tr
-              td Запросы
-          tbody
-            - queries_for(site).each do |query|
+        - if site.queries[0].positions.any?
+          table
+            thead
               tr
-                td.query_word= query.word
-                - positions_for(query).each do |position|
-                  td.position_place
-                    - if position == 999
-                      span -
-                    - else
-                      = position
+                td Запросы
+            tbody
+                - queries_for(site).each do |query|
+                  tr
+                    td.query_word= query.word
+                    - positions_for(query).each do |position|
+                      td.position_place
+                        - if position == 999
+                          span -
+                        - else
+                          = position
+        - else
+          div.no_position_message Пока нет позиций для данного сайта.
