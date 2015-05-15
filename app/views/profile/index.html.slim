@@ -12,13 +12,17 @@
     .basic_table
       - @sites.each do |site|
         table
+          thead
+            tr
+              td Запросы
           tbody
             - site.queries.each do |query|
               tr
                 td.query_word= query.word
-                - query.positions.each do |position|
+
+                - query.positions.map(&:place).reverse.each do |position|
                   td.position_place
-                    - if position.place == 0
+                    - if position == 0
                       span -
                     - else
-                      = position.place
+                      = position
