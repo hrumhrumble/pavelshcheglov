@@ -21,7 +21,7 @@
                 td.query_word= query.word
                 - positions_for(query).each do |position|
                   td.position_place
-                    - if position == 0
+                    - if position == 999
                       span -
                     - else
                       = position
