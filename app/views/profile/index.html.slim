@@ -16,11 +16,10 @@
             tr
               td Запросы
           tbody
-            - site.queries.each do |query|
+            - queries_for(site).each do |query|
               tr
                 td.query_word= query.word
-
-                - query.positions.map(&:place).reverse.each do |position|
+                - positions_for(query).each do |position|
                   td.position_place
                     - if position == 0
                       span -
