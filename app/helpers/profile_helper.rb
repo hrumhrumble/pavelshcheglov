@@ -2,25 +2,25 @@ module ProfileHelper
 
   def colored query
     positions = query.positions.map(&:place).reverse
-    colors = []
+    dynamics = []
 
     for i in 0...positions.length
       if positions[i+1].present?
         if positions[i] > positions[i+1]
-          colors << 'red'
+          dynamics << 'down'
         elsif positions[i] < positions[i+1]
-          colors << 'green'
+          dynamics << 'up'
         elsif positions[i] == positions[i+1]
-          colors << 'eq'
+          dynamics << 'same'
         else
-          colors << ''
+          dynamics << ''
         end
       else
-        colors << ''
+        dynamics << 'up'
       end
     end
 
-    colors
+    dynamics
 
   end
 end

@@ -43,15 +43,28 @@
 
   .basic_table
     box-shadow: 0 0 10px rgba(0,0,0,.2)
-    tbody > tr:hover
-      background-color: #e5e5e5
+    thead td
+      background-color: #ffffff
+    tbody > tr
+      &:nth-child(even) .query_word
+        background-color: #F7F7F7
+      &:hover
+        background-color: #e5e5e5
+    td
+      padding: 7px 12px
+      font-size: 13px
+      background-color: #EFEFEF
+      border: 1px solid #E0E0E0
     .position_place
       text-align: center
       width: 15px
-    .red
-      background-color: red
-    .green
-      background-color: green
+      font-weight: 700
+    .up, .down
+      color: #fff
+    .up
+      background-color: #78C200
+    .down
+      background-color: #FF8000
 
   .no_position_message
     padding: 20px 0
