@@ -1,0 +1,6 @@
+- query.positions.reverse.each_with_index do |position, index|
+  td.position_place class="#{colored(query)[index]}"
+    - if position.place == 999
+      span -
+    - else
+      = position.place

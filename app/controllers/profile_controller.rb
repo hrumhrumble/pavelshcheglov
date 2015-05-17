@@ -5,4 +5,5 @@ class ProfileController < ApplicationController
   def index
     @sites = current_user.sites
   end
+
 end

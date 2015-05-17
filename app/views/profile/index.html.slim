@@ -4,27 +4,25 @@
     = link_to 'Выход', destroy_user_session_path, method: :delete
 
 #wrapper
-  .profile_site
-    .header
-      - @sites.each do |site|
-        span = site.url
-
-    .basic_table
-      - @sites.each do |site|
-        - if site.queries[0].positions.any?
+  - @sites.each do |site|
+    - if site.have_queries_or_positions?
+      .profile_site
+        .header = site.url
+        .basic_table
           table
             thead
               tr
                 td Запросы
+                - site.position_date.each do |position|
+                  td = position.created_at.strftime('%d')
+
             tbody
-                - queries_for(site).each do |query|
-                  tr
-                    td.query_word= query.word
-                    - positions_for(query).each do |position|
-                      td.position_place
-                        - if position == 999
-                          span -
-                        - else
-                          = position
-        - else
+              - site.sorted_queries.each do |query|
+                tr
+                  td.query_word= query.word
+                  = render 'positions', query: query
+    - else
+      .profile_site
+        .header = site.url
+        .basic_table
           div.no_position_message Пока нет позиций для данного сайта.
