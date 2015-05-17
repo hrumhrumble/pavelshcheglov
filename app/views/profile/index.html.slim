@@ -5,7 +5,7 @@
 
 #wrapper
   - @sites.each do |site|
-    - if site.have_queries_or_positions?
+    - if site.have_queries?
       .profile_site
         .header = site.url
         .basic_table
@@ -20,4 +20,5 @@
               - site.sorted_queries.each do |query|
                 tr
                   td.query_word= query.word
-                  = render 'positions', query: query
+                  - if site.have_positions?
+                    = render 'positions', query: query
