@@ -2,8 +2,8 @@
 require 'nokogiri'
 
 namespace :xml do
-  key = "03.118344341:efdcf4a107c810f4ed5c1f58402cffe0"
-  user = "pl-scheglov"
+  key = ENV["yandex_xml_api_key"]
+  user = ENV["yandex_xml_user"]
   region = "213" # http://search.yaca.yandex.ru/geo.c2n
 
   desc 'get positions data from xml.yandex.ru'

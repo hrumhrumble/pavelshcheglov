@@ -18,7 +18,7 @@ gem 'pg'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'unicorn'
-
+gem 'figaro'
 gem 'nokogiri'
 
 gem 'whenever', :require => false
