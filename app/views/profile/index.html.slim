@@ -14,7 +14,7 @@
               tr
                 td Запросы
                 - site.position_date.each do |position|
-                  td = position.created_at.strftime('%d')
+                  td.date_row = position.created_at.strftime('%d')
 
             tbody
               - site.sorted_queries.each do |query|
