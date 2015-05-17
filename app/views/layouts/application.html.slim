@@ -7,4 +7,5 @@ html
     meta content="width=device-width, initial-scale=1.0" name="viewport"
     = csrf_meta_tags
   body class="#{controller_name}"
+    = render './shared/flash'
     = yield
