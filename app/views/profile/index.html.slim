@@ -1,18 +1,16 @@
 #header
   #wrapper
-    span.current_user_email = current_user.email
     = link_to 'Выход', destroy_user_session_path, method: :delete
 
 #wrapper
   - @sites.each do |site|
     - if site.have_queries?
       .profile_site
-        .header = site.url
         .basic_table
           table
             thead
               tr
-                td Запросы
+                td.info = site.url
                 - site.position_date.each do |position|
                   td.date_row = position.created_at.strftime('%d')
 
