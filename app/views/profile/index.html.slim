@@ -21,8 +21,3 @@
                 tr
                   td.query_word= query.word
                   = render 'positions', query: query
-    - else
-      .profile_site
-        .header = site.url
-        .basic_table
-          div.no_position_message Пока нет позиций для данного сайта.

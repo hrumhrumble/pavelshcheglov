@@ -33,18 +33,22 @@
     margin: 10px 0 30px 0
     .header
       font-size: 14px
-      background-color: #ffffff
-      box-shadow: 0 0 10px rgba(0,0,0,.2)
-      margin-bottom: 5px
+      background-color: #EFEFEF
+      border: 1px solid #E0E0E0
       padding: 0 10px
-      height: 50px
-      line-height: 50px
+      height: 40px
+      line-height: 40px
+      font-weight: 700
+      color: #666666
 
 
   .basic_table
-    box-shadow: 0 0 10px rgba(0,0,0,.2)
-    thead td
-      background-color: #ffffff
+    thead
+      border-bottom: 1px solid #DDDDDD
+      font-weight: 700
+      td
+        background-color: transparent
+        border: none
     tbody > tr
       &:nth-child(even) .query_word
         background-color: #F7F7F7
@@ -55,10 +59,13 @@
       font-size: 13px
       background-color: #EFEFEF
       border: 1px solid #E0E0E0
+      color: #666666
     .position_place
       text-align: center
       width: 15px
       font-weight: 700
+    .query_word
+      color: #000000
     .up, .down
       color: #fff
     .up
