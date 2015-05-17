@@ -1,11 +1,6 @@
 # Russian. Updated 2014-04-01
 
 ru:
-  datetime:
-    distance_in_words:
-      about_x_hours: несколько часов
-      x_minutes: несколько минут
-      less_than_x_minutes: несколько секунд
   admin:
     js:
       true: 'True'
