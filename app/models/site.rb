@@ -3,23 +3,32 @@ class Site < ActiveRecord::Base
   has_many :queries, dependent: :destroy
 
   def have_queries?
-    self.queries.any?
+    queries.any?
   end
 
   def have_positions?
-    self.queries.first.positions.any?
+    queries.first.positions.any?
   end
 
   def sorted_queries
-    if self.have_positions?
-      self.queries.sort_by { |query| query.positions.last.place }
+    if have_positions?
+      queries.sort_by { |query| query.positions.reverse.first.place }
     else
-      self.queries
+      queries
     end
   end
 
   def position_dates
-    self.queries.first.positions.limit(14).reverse
+    queries.first.positions
+  end
+
+  def in_top top_border
+    all = sorted_queries.count
+    in_top = sorted_queries.map do |query|
+      query if query.positions.reverse.first.place <= top_border
+    end.compact.count
+
+    (in_top * 100) / all
   end
 
   rails_admin do

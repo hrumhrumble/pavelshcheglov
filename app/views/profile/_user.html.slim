@@ -6,7 +6,7 @@
           thead
             tr
               td.info = site.url
-              - site.position_dates.each do |date|
+              - site.position_dates.reverse.each do |date|
                 td.date_row = date.day
 
           tbody
