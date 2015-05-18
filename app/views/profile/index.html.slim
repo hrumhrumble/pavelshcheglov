@@ -3,20 +3,7 @@
     = link_to 'Выход', destroy_user_session_path, method: :delete
 
 #wrapper
-  - @sites.each do |site|
-    - if site.have_queries?
-      .profile_site
-        .basic_table
-          table
-            thead
-              tr
-                td.info = site.url
-                - site.position_date.each do |position|
-                  td.date_row = position.created_at.strftime('%d')
-
-            tbody
-              - site.sorted_queries.each do |query|
-                tr
-                  td.query_word= query.word
-                  - if site.have_positions?
-                    = render 'positions', query: query
+  - if current_user.role == 'admin'
+    = render 'admin'
+  - else
+    = render 'user'

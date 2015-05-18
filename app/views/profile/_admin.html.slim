@@ -1,0 +1,17 @@
+- @all_sites.each do |site|
+  - if site.have_queries?
+    .profile_site
+      .basic_table
+        table
+          thead
+            tr
+              td.info = site.url
+              - site.position_dates.each do |date|
+                td.date_row = date.day
+
+          tbody
+            - site.sorted_queries.each do |query|
+              tr
+                td.query_word= query.word
+                - if site.have_positions?
+                  = render 'positions', query: query

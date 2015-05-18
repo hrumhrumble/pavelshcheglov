@@ -18,8 +18,8 @@ class Site < ActiveRecord::Base
     end
   end
 
-  def position_date
-    self.queries.last.positions.reverse
+  def position_dates
+    self.queries.first.positions.limit(14).reverse
   end
 
   rails_admin do

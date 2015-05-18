@@ -3,7 +3,8 @@ class ProfileController < ApplicationController
   authorize_resource :class => false
 
   def index
-    @sites = current_user.sites
+    @user_sites = current_user.sites
+    @all_sites = Site.all
   end
 
 end

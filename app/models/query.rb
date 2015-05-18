@@ -3,8 +3,11 @@ class Query < ActiveRecord::Base
   has_many :positions, dependent: :destroy
   validates_uniqueness_of :word, :case_sensitive => false
 
-  rails_admin do
+  def format_positions
+    self.positions.limit(14).reverse
+  end
 
+  rails_admin do
     list do
       field :word
       field :site
