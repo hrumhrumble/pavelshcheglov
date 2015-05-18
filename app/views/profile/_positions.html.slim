@@ -3,4 +3,4 @@
     - if position.place == 999
       span -
     - else
-      = position.place
+      = link_to position.place, "http://yandex.ru/yandsearch?p=0&lr=213&text=#{query.word}", target: '_blank'
