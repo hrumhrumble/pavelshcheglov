@@ -1,4 +1,7 @@
 module ProfileHelper
+  def admin?
+    current_user.role == 'admin'
+  end
 
   def colored query
     positions = query.positions.map(&:place).reverse

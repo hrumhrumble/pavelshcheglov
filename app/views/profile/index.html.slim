@@ -3,7 +3,7 @@
     = link_to 'Выход', destroy_user_session_path, method: :delete
 
 #wrapper
-  - if current_user.role == 'admin'
+  - if admin?
     = render 'admin'
   - else
     = render 'user'
