@@ -12,14 +12,14 @@ class Site < ActiveRecord::Base
 
   def sorted_queries
     if have_positions?
-      queries.sort_by { |query| query.positions.reverse.first.place }
+      queries.sort_by { |query| query.positions.order(created_at: :desc).limit(14).first.place }
     else
       queries
     end
   end
 
   def position_dates
-    queries.first.positions
+    queries.first.positions.order(created_at: :desc).limit(14)
   end
 
   def in_top top_border

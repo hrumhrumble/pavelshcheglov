@@ -8,7 +8,7 @@
               td.info
                 span = site.url
                 span В топе: #{site.in_top(10)} %
-              - site.position_dates.reverse.each do |date|
+              - site.position_dates.each do |date|
                 td.date_row = date.day
 
           tbody

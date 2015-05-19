@@ -1,4 +1,4 @@
-- query.positions.reverse.each_with_index do |position, index|
+- query.ordered_positions.each_with_index do |position, index|
   td.position_place class="#{colored(query)[index]}" data="#{position.created_at}"
     - if position.place == 999
       span -
