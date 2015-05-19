@@ -27,7 +27,7 @@ namespace :xml do
         query.positions.create(place: position)
       end
     end
-
   end
+
 end
 
