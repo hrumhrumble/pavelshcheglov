@@ -23,10 +23,14 @@ class Site < ActiveRecord::Base
   end
 
   def positions_in_top
-    top_limit = 10
-    total_queries = queries.count
-    queries_in_top = queries.map { |query| query if query.positions.first.place <= top_limit }.compact.count
-    queries_in_top * 100 / total_queries
+    if have_positions?
+      top_limit = 10
+      total_queries = queries.count
+      queries_in_top = queries.map { |query| query if query.positions.first.place <= top_limit }.compact.count
+      queries_in_top * 100 / total_queries
+    else
+      0
+    end
   end
 
   rails_admin do
