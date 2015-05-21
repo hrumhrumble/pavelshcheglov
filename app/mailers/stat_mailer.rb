@@ -1,6 +1,6 @@
 class StatMailer < ApplicationMailer
 
-  default from: "pl.scheglov@yandex.ru"
+  default from: "info@pavelshcheglov.com"
   layout 'mailer'
 
   def daily_stat_info(mail)
