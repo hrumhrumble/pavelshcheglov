@@ -12,23 +12,21 @@ class Site < ActiveRecord::Base
 
   def sorted_queries
     if have_positions?
-      queries.sort_by { |query| query.positions.order(created_at: :desc).limit(14).first.place }
+      queries.sort_by { |query| query.ordered_positions.first.place }
     else
       queries
     end
   end
 
   def position_dates
-    queries.first.positions.order(created_at: :desc).limit(14)
+    queries.first.ordered_positions
   end
 
-  def in_top top_border
-    all = sorted_queries.count
-    in_top = sorted_queries.map do |query|
-      query if query.positions.reverse.first.place <= top_border
-    end.compact.count
-
-    (in_top * 100) / all
+  def positions_in_top
+    top_limit = 10
+    total_queries = queries.count
+    queries_in_top = queries.map { |query| query if query.positions.first.place <= top_limit }.compact.count
+    queries_in_top * 100 / total_queries
   end
 
   rails_admin do
