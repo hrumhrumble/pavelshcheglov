@@ -29,6 +29,7 @@ group :development, :test do
   gem 'spring'
   gem 'pry-rails'
   gem 'pry-rescue'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -42,4 +43,9 @@ group :development do
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'factory_girl_rails'
 end
