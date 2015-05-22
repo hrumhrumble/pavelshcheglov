@@ -76,8 +76,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.asset_host = "http://pavelshcheglov.com"
-  config.action_mailer.default_url_options = {
-      :host => 'pavelshcheglov.com',
+  config.action_mailer.default_url_options = {:host => 'pavelshcheglov.com', :from => 'info@pavelshcheglov.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.yandex.ru",
+      :port => 587,
+      :domain => 'pavelshcheglov.com',
+      :authentication => :plain,
+      :user_name => ENV['yandex_mail_login'],
+      :password => ENV['yandex_mail_password']
   }
 end
