@@ -7,7 +7,7 @@
             tr
               td.info
                 span = site.url
-                span В топе: #{site.positions_in_top} %
+                span В топе: #{site.positions[:in_top]} из #{site.positions[:total]}
               - site.position_dates.each do |date|
                 td.date_row = date.day
 
