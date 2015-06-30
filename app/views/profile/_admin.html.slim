@@ -1,6 +1,7 @@
 - @all_sites.each do |site|
   - if site.have_queries?
     .profile_site
+      .top_chart data-top="#{site.positions[:percent]}"
       .basic_table
         table
           thead
@@ -14,6 +15,6 @@
           tbody
             - site.sorted_queries.each do |query|
               tr
-                td.query_word= query.word
+                td.query_word data-top="#{query.ordered_positions.inspect}" = query.word
                 - if site.have_positions?
                   = render 'positions', query: query
