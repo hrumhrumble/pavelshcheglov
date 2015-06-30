@@ -26,8 +26,8 @@ class Site < ActiveRecord::Base
     if have_positions?
       top_limit = 10
       total_queries = queries.count
-      queries_in_top = queries.map { |query| query if query.positions.first.place <= top_limit }.compact.count
-      { in_top: queries_in_top, total: total_queries}
+      queries_in_top = queries.map { |query| query if query.positions.last.place <= top_limit }.compact.count
+      { in_top: queries_in_top, total: total_queries }
     else
       0
     end
