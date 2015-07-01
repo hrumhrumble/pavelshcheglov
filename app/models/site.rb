@@ -27,18 +27,24 @@ class Site < ActiveRecord::Base
       top_limit = 10
       total_queries = queries.count
       total_positions = queries.first.positions.count
-      queries_in_top3 = []
-      queries_in_top = queries.map { |query| true if query.ordered_positions.first.place <= top_limit }.compact.count
+      positions_history = []
+      positions_dates = queries.first.positions.map {|position| position.created_at.strftime("%Y-%m-%d")  }
 
-
+      # count positions at top for each day
       total_positions.times do |index|
-        queries_in_top2 = queries.map { |query| true if query.positions[index].place <= top_limit }.compact.count
-        queries_in_top3 << queries_in_top2 * 100 / total_queries
+        positions_history << queries.map { |query| true if query.positions[index].place <= top_limit }.compact.count
       end
 
-      positions_dynamic = [self.url] << queries_in_top3
+      # output data for c3 charts
+      positions_dynamic = [self.url] << positions_history.map { |count| count * 100 / total_queries }
 
-      { in_top: queries_in_top, total: total_queries, percent: positions_dynamic.flatten }
+      {
+          in_top: positions_history.last,
+          total: total_queries,
+          percent: positions_dynamic.flatten,
+          data: [['x'] + positions_dates, positions_dynamic.flatten]
+      }
+
     else
       0
     end

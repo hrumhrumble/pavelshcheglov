@@ -11,14 +11,22 @@ init = ->
   ,2000)
 
   chart = c3.generate
+    bindto: '.top_chart'
     data:
-      columns: [$('.top_chart').data('top')]
+      x: 'x'
+      columns: $('.top_chart').data('c3')
       type: 'area-spline'
-      labels: false
     size:
-      height: 250
-
-  $('.top_chart').append(chart.element)
+      height: 200
+    axis:
+      x:
+        type: 'timeseries'
+        tick:
+          format: '%Y-%m-%d'
+      y:
+        label:
+          text: 'процент вывода'
+          position: 'outer-middle'
 
 $(document).on('page:change', init)
 

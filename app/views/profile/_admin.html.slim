@@ -1,7 +1,7 @@
 - @all_sites.each do |site|
   - if site.have_queries?
     .profile_site
-      .top_chart data-top="#{site.positions[:percent]}"
+      .top_chart data-c3="#{site.positions[:data]}"
       .basic_table
         table
           thead
