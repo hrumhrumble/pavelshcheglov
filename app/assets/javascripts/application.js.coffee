@@ -28,9 +28,14 @@ init = ->
       x:
         type: 'timeseries'
         tick:
-          format: '%Y-%m-%d'
+          format: '%d'
+          fit: true
+          culling:
+            max: 30
     tooltip:
       format:
+        title: (d) ->
+          return d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear()
         value: (value, ratio, id) ->
           return value + "%"
 
