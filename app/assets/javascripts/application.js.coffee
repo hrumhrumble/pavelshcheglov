@@ -16,17 +16,23 @@ init = ->
       x: 'x'
       columns: $('.top_chart').data('c3')
       type: 'area-spline'
+    legend:
+      show: false
     size:
       height: 200
+    padding:
+      left: 30
+      top: 5
+      right: 10
     axis:
       x:
         type: 'timeseries'
         tick:
           format: '%Y-%m-%d'
-      y:
-        label:
-          text: 'процент вывода'
-          position: 'outer-middle'
+    tooltip:
+      format:
+        value: (value, ratio, id) ->
+          return value + "%"
 
 $(document).on('page:change', init)
 

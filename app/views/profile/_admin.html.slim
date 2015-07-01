@@ -1,20 +1,22 @@
 - @all_sites.each do |site|
   - if site.have_queries?
     .profile_site
-      .top_chart data-c3="#{site.positions[:data]}"
+      .profile_info
+        .profile_info_header
+          span = site.url
+          span - #{site.positions[:in_top]} из #{site.positions[:total]} (#{site.positions[:percent].last} %)
+        .top_chart data-c3="#{site.positions[:data]}"
       .basic_table
         table
           thead
             tr
-              td.info
-                span = site.url
-                span В топе: #{site.positions[:in_top]} из #{site.positions[:total]}
+              td
               - site.position_dates.each do |date|
                 td.date_row = date.day
 
           tbody
             - site.sorted_queries.each do |query|
               tr
-                td.query_word data-top="#{query.ordered_positions.inspect}" = query.word
+                td.query_word = query.word
                 - if site.have_positions?
                   = render 'positions', query: query
